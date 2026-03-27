@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <title>Térri — Marketing Mobiliário</title>
+  <meta name="description" content="Térri é uma agência especializada em marketing imobiliário. Lançamentos, incorporadoras e construtoras vendendo mais com estratégia digital.">
+  <meta property="og:title" content="Térri — Marketing Mobiliário">
+  <meta property="og:description" content="Agência especializada em marketing imobiliário. Lançamentos, incorporadoras e construtoras vendendo mais com estratégia digital.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Prevent FOUC on theme -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('terri-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <!-- Shared SVG symbols -->
+  <svg hidden aria-hidden="true">
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  </svg>
+
+  <!-- Noise overlay -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo">
+        <img src="src/logo.png" alt="Térri" class="header__logo-img js-logo-img">
+        <span class="header__logo-text" style="display:none">Térri</span>
+      </a>
+      <nav class="header__nav" id="nav" aria-label="Navegação principal">
+        <ul class="header__nav-list">
+          <li><a href="#sobre" class="header__nav-link">Sobre</a></li>
+          <li><a href="#servicos" class="header__nav-link">Serviços</a></li>
+          <li><a href="#portfolio" class="header__nav-link">Portfólio</a></li>
+          <li><a href="#depoimentos" class="header__nav-link">Depoimentos</a></li>
+          <li><a href="#contato" class="header__nav-link header__nav-link--cta">Fale conosco</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <nav aria-label="Navegação mobile">
+      <ul class="mobile-nav__list">
+        <li><a href="#sobre" class="mobile-nav__link">Sobre</a></li>
+        <li><a href="#servicos" class="mobile-nav__link">Serviços</a></li>
+        <li><a href="#portfolio" class="mobile-nav__link">Portfólio</a></li>
+        <li><a href="#depoimentos" class="mobile-nav__link">Depoimentos</a></li>
+        <li><a href="#contato" class="mobile-nav__link mobile-nav__link--cta">Fale conosco</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__tag reveal-up">Marketing Mobiliário</p>
+        <h1 class="hero__title">
+          <span class="reveal-up">Lançamentos que</span>
+          <span class="reveal-up"><em>vendem</em> antes</span>
+          <span class="reveal-up">de <em>ficarem prontos.</em></span>
+        </h1>
+        <p class="hero__subtitle reveal-up">Somos a agência especializada em marketing imobiliário. Estratégias digitais que aceleram vendas de lançamentos, incorporadoras e construtoras.</p>
+        <div class="hero__actions reveal-up">
+          <a href="#contato" class="btn btn--primary">Falar com especialista <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+          <a href="#portfolio" class="btn btn--outline">Ver lançamentos</a>
+        </div>
+      </div>
+      <div class="hero__visual reveal-up">
+        <div class="hero__shape hero__shape--1" aria-hidden="true"></div>
+        <div class="hero__shape hero__shape--2" aria-hidden="true"></div>
+        <div class="hero__shape hero__shape--3" aria-hidden="true"></div>
+        <div class="hero__metrics">
+          <div class="hero__metric">
+            <span class="hero__metric-number" data-count="150">0</span><span class="hero__metric-plus">+</span>
+            <span class="hero__metric-label">Lançamentos atendidos</span>
+          </div>
+          <div class="hero__metric">
+            <span class="hero__metric-number" data-count="98">0</span><span class="hero__metric-plus">%</span>
+            <span class="hero__metric-label">Satisfação dos clientes</span>
+          </div>
+          <div class="hero__metric">
+            <span class="hero__metric-number" data-count="5">0</span><span class="hero__metric-plus">+</span>
+            <span class="hero__metric-label">Anos no mercado imobiliário</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="sobre">
+    <div class="container about__inner">
+      <div class="about__image reveal-left">
+        <div class="about__image-wrapper">
+          <div class="about__image-placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="about__content reveal-right">
+        <p class="section-tag">Sobre nós</p>
+        <h2 class="section-title">A agência que <em>entende</em> o mercado imobiliário</h2>
+        <p>A Térri nasceu dentro do setor imobiliário. Conhecemos os desafios de vender imóveis — ciclo de decisão longo, ticket alto e compra emocional. Por isso, criamos estratégias sob medida para lançamentos, incorporadoras e construtoras.</p>
+        <p>De tráfego pago a tours virtuais, nossa equipe combina conhecimento do mercado imobiliário com marketing de performance para gerar leads qualificados e acelerar suas vendas.</p>
+        <div class="about__values">
+          <div class="about__value">
+            <div class="about__value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <strong>Mercado imobiliário</strong>
+              <span>Especialistas em lançamentos</span>
+            </div>
+          </div>
+          <div class="about__value">
+            <div class="about__value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+            </div>
+            <div>
+              <strong>Performance</strong>
+              <span>Leads qualificados para o corretor</span>
+            </div>
+          </div>
+          <div class="about__value">
+            <div class="about__value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div>
+              <strong>Resultados</strong>
+              <span>Unidades vendidas, não só cliques</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="services__header">
+        <p class="section-tag reveal-up">Serviços</p>
+        <h2 class="section-title reveal-up">Tudo que seu lançamento precisa para <em>vender</em> rápido</h2>
+      </div>
+      <div class="services__grid">
+        <article class="service-card reveal-up">
+          <div class="service-card__number" aria-hidden="true">01</div>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="service-card__title">Tráfego Pago Imobiliário</h3>
+          <p class="service-card__desc">Campanhas no Google e Meta Ads focadas em gerar leads qualificados para lançamentos. Pessoas prontas para agendar visita ao decorado.</p>
+          <ul class="service-card__list">
+            <li>Google Ads para empreendimentos</li>
+            <li>Meta Ads (Instagram e Facebook)</li>
+            <li>Remarketing para leads quentes</li>
+          </ul>
+        </article>
+        <article class="service-card reveal-up">
+          <div class="service-card__number" aria-hidden="true">02</div>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          </div>
+          <h3 class="service-card__title">Redes Sociais Imobiliárias</h3>
+          <p class="service-card__desc">Conteúdo que gera desejo e urgência. Renders, tours virtuais, bastidores de obra e stories que transformam seguidores em compradores.</p>
+          <ul class="service-card__list">
+            <li>Gestão de Instagram e Facebook</li>
+            <li>Conteúdo de lançamentos</li>
+            <li>Reels e vídeos de empreendimentos</li>
+          </ul>
+        </article>
+        <article class="service-card reveal-up">
+          <div class="service-card__number" aria-hidden="true">03</div>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+          </div>
+          <h3 class="service-card__title">Landing Pages de Lançamento</h3>
+          <p class="service-card__desc">Páginas de captura de alta conversão para cada empreendimento, com renders, plantas, diferenciais e formulário integrado ao CRM.</p>
+          <ul class="service-card__list">
+            <li>Landing pages de empreendimentos</li>
+            <li>Tour virtual e galeria de renders</li>
+            <li>Integração com CRM imobiliário</li>
+          </ul>
+        </article>
+        <article class="service-card reveal-up">
+          <div class="service-card__number" aria-hidden="true">04</div>
+          <div class="service-card__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          </div>
+          <h3 class="service-card__title">Branding de Empreendimentos</h3>
+          <p class="service-card__desc">Identidade visual e naming para lançamentos que se destacam. Do conceito criativo ao material de stand e plantão de vendas.</p>
+          <ul class="service-card__list">
+            <li>Naming e identidade do empreendimento</li>
+            <li>Material de stand e plantão</li>
+            <li>Apresentação para investidores</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="portfolio__header">
+        <p class="section-tag reveal-up">Portfólio</p>
+        <h2 class="section-title reveal-up">Cases que <em>comprovam</em> resultados</h2>
+      </div>
+      <div class="portfolio__grid">
+        <article class="portfolio__item portfolio__item--wide reveal-up">
+          <div class="portfolio__item-inner">
+            <div class="portfolio__item-bg portfolio__item-bg--1"></div>
+            <div class="portfolio__item-content">
+              <span class="portfolio__item-tag">Lançamento + Tráfego</span>
+              <h3 class="portfolio__item-title">Residencial Alto da Serra</h3>
+              <p class="portfolio__item-desc">85% das unidades vendidas em 60 dias</p>
+            </div>
+          </div>
+        </article>
+        <article class="portfolio__item reveal-up">
+          <div class="portfolio__item-inner">
+            <div class="portfolio__item-bg portfolio__item-bg--2"></div>
+            <div class="portfolio__item-content">
+              <span class="portfolio__item-tag">Redes Sociais</span>
+              <h3 class="portfolio__item-title">Vila Jardim Incorporadora</h3>
+              <p class="portfolio__item-desc">+300% de engajamento e 120 leads/mês</p>
+            </div>
+          </div>
+        </article>
+        <article class="portfolio__item reveal-up">
+          <div class="portfolio__item-inner">
+            <div class="portfolio__item-bg portfolio__item-bg--3"></div>
+            <div class="portfolio__item-content">
+              <span class="portfolio__item-tag">Landing Page</span>
+              <h3 class="portfolio__item-title">Edifício Monreale</h3>
+              <p class="portfolio__item-desc">Taxa de conversão de 14% na página de captura</p>
+            </div>
+          </div>
+        </article>
+        <article class="portfolio__item reveal-up">
+          <div class="portfolio__item-inner">
+            <div class="portfolio__item-bg portfolio__item-bg--4"></div>
+            <div class="portfolio__item-content">
+              <span class="portfolio__item-tag">Branding</span>
+              <h3 class="portfolio__item-title">Condomínio Parque das Águas</h3>
+              <p class="portfolio__item-desc">Identidade visual e campanha de pré-lançamento</p>
+            </div>
+          </div>
+        </article>
+        <article class="portfolio__item reveal-up">
+          <div class="portfolio__item-inner">
+            <div class="portfolio__item-bg portfolio__item-bg--5"></div>
+            <div class="portfolio__item-content">
+              <span class="portfolio__item-tag">Campanha Completa</span>
+              <h3 class="portfolio__item-title">Construtora Horizonte — 3 lançamentos</h3>
+              <p class="portfolio__item-desc">ROI de 10x e custo por lead abaixo de R$ 18</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="testimonials__header">
+        <p class="section-tag reveal-up">Depoimentos</p>
+        <h2 class="section-title reveal-up">Quem confia na Térri, <em>vende</em> mais</h2>
+      </div>
+      <div class="testimonials__grid">
+        <article class="testimonial-card reveal-up">
+          <div class="testimonial-card__stars" aria-label="5 estrelas">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+          </div>
+          <blockquote class="testimonial-card__text">"A Térri entregou mais de 200 leads qualificados no primeiro mês do lançamento. Vendemos 70% das unidades antes de tirar o prédio do chão."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">MC</div>
+            <div>
+              <strong>Marcos Carvalho</strong>
+              <span>Diretor, Construtora Horizonte</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card reveal-up">
+          <div class="testimonial-card__stars" aria-label="5 estrelas">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+          </div>
+          <blockquote class="testimonial-card__text">"A landing page que criaram pro nosso empreendimento convertia 3x mais que a anterior. E o tráfego pago trouxe gente realmente interessada em comprar."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">RS</div>
+            <div>
+              <strong>Renata Silva</strong>
+              <span>Gerente Comercial, Vila Jardim Inc.</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card reveal-up">
+          <div class="testimonial-card__stars" aria-label="5 estrelas">
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+            <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+          </div>
+          <blockquote class="testimonial-card__text">"Toda vez que lançamos um empreendimento, a Térri cuida de tudo — do naming à campanha de vendas. Viraram uma extensão do nosso time."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">AL</div>
+            <div>
+              <strong>André Lopes</strong>
+              <span>CEO, Incorporadora Alto Padrão</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner reveal-up">
+        <h2 class="cta-banner__title">Seu próximo lançamento merece <em>vender rápido.</em></h2>
+        <p class="cta-banner__text">Agende uma conversa gratuita e descubra como o marketing imobiliário especializado pode acelerar suas vendas.</p>
+        <a href="#contato" class="btn btn--primary btn--lg">Quero acelerar vendas <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contato">
+    <div class="container contact__inner">
+      <div class="contact__info reveal-left">
+        <p class="section-tag">Contato</p>
+        <h2 class="section-title">Vamos acelerar seu próximo <em>lançamento?</em></h2>
+        <p>Preencha o formulário ao lado ou entre em contato diretamente. Atendemos incorporadoras, construtoras e imobiliárias em todo o Brasil.</p>
+        <div class="contact__channels">
+          <a href="mailto:contato@terri.com.br" class="contact__channel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            <span>contato@terri.com.br</span>
+          </a>
+          <a href="https://www.instagram.com/terriestudio/" target="_blank" rel="noopener" class="contact__channel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            <span>@terriestudio</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact__form-wrapper reveal-right">
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Nome <span class="required" aria-label="obrigatório">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Seu nome completo" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail <span class="required" aria-label="obrigatório">*</span></label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="service">Serviço</label>
+              <select id="service" name="service">
+                <option value="">Selecione</option>
+                <option value="trafego">Tráfego Pago</option>
+                <option value="social">Redes Sociais</option>
+                <option value="landing">Landing Page de Lançamento</option>
+                <option value="branding">Branding de Empreendimento</option>
+                <option value="completo">Campanha Completa</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="4" placeholder="Conte-nos sobre seu projeto..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Enviar mensagem <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="src/logo.png" alt="Térri" class="footer__logo js-logo-img">
+          <span class="footer__logo-text" style="display:none">Térri</span>
+          <p class="footer__desc">Marketing especializado em lançamentos imobiliários.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Navegação</h4>
+            <ul>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#portfolio">Portfólio</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="#servicos">Tráfego Pago</a></li>
+              <li><a href="#servicos">Redes Sociais</a></li>
+              <li><a href="#servicos">Landing Pages</a></li>
+              <li><a href="#servicos">Branding</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="https://www.instagram.com/terriestudio/" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://linkedin.com/company/terri" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://youtube.com/@terri" target="_blank" rel="noopener">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Térri. Todos os direitos reservados.</p>
+      </div>
+    </div>
+    <div class="noise" aria-hidden="true"></div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5531994230454" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
