@@ -107,9 +107,12 @@ function initMobileNav() {
 
 /* --- Scroll Reveal Animations --- */
 function initRevealAnimations() {
-  if (prefersReducedMotion) return;
-
   const elements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+
+  if (prefersReducedMotion) {
+    elements.forEach(el => el.classList.add('active'));
+    return;
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
