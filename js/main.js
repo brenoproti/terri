@@ -59,12 +59,15 @@ function initHeader() {
   const header = document.getElementById('header');
   let scrolled = false;
 
-  window.addEventListener('scroll', () => {
+  function updateHeader() {
     const shouldScroll = window.scrollY > 50;
     if (shouldScroll === scrolled) return;
     scrolled = shouldScroll;
     header.classList.toggle('header--scrolled', scrolled);
-  }, { passive: true });
+  }
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
 }
 
 /* --- Mobile Navigation --- */
