@@ -1346,7 +1346,7 @@ a.portfolio__item {
 
 .portfolio__item-inner {
   position: relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/3;
   overflow: hidden;
   border-radius: 20px;
   border: 1px solid var(--color-border);
@@ -1480,13 +1480,8 @@ a.portfolio__item {
 
 @media (min-width: 768px) {
   .portfolio__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .portfolio__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
