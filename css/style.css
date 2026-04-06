@@ -572,7 +572,7 @@ em {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 8rem 0 0;
+  padding: 8rem 0 4rem;
 }
 
 /* Animated background */
@@ -608,24 +608,6 @@ em {
   100% { transform: translate(2%, -2%) rotate(1deg) scale(1.02); }
 }
 
-/* Grid lines background */
-.hero__grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
-}
-
-[data-theme="light"] .hero__grid-lines {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-}
-
 /* Floating orbs */
 .hero__orb {
   position: absolute;
@@ -657,65 +639,29 @@ em {
   animation-delay: -3s;
 }
 
-.hero__orb--3 {
-  width: 150px;
-  height: 150px;
-  background: var(--orange-600);
-  top: 50%;
-  left: 50%;
-  opacity: 0.03;
-  animation-duration: 16s;
-  animation-delay: -6s;
-}
-
 @keyframes orb-float {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(30px, -20px) scale(1.1); }
   100% { transform: translate(-20px, 30px) scale(0.95); }
 }
 
-/* Floating particles */
-.hero__particles {
-  position: absolute;
-  inset: 0;
-}
-
-.hero__particles span {
-  position: absolute;
-  bottom: 0;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  opacity: 0;
-  animation: particle-rise 6s ease-in-out infinite;
-  will-change: transform, opacity;
-}
-
-.hero__particles span:nth-child(1) { left: 12%; animation-delay: 0s; animation-duration: 7s; }
-.hero__particles span:nth-child(2) { left: 30%; animation-delay: 1.2s; animation-duration: 5.5s; }
-.hero__particles span:nth-child(3) { left: 48%; animation-delay: 2.5s; animation-duration: 8s; }
-.hero__particles span:nth-child(4) { left: 62%; animation-delay: 0.8s; animation-duration: 6s; }
-.hero__particles span:nth-child(5) { left: 78%; animation-delay: 3.1s; animation-duration: 7.5s; }
-.hero__particles span:nth-child(6) { left: 90%; animation-delay: 1.7s; animation-duration: 5.5s; }
-
-@keyframes particle-rise {
-  0% { transform: translateY(0) scale(0.5); opacity: 0; }
-  15% { opacity: 0.4; }
-  50% { opacity: 0.15; transform: translateY(-50vh) scale(1); }
-  85% { opacity: 0.3; }
-  100% { transform: translateY(-110vh) scale(0.3); opacity: 0; }
-}
-
-/* Accent line decoration */
+/* Accent lines */
 .hero__accent-line {
   position: absolute;
-  right: 10%;
-  top: 20%;
+  right: 12%;
+  top: 15%;
   width: 1px;
-  height: 60%;
-  background: linear-gradient(to bottom, transparent, var(--color-primary), transparent);
-  opacity: 0.08;
+  height: 70%;
+  background: linear-gradient(to bottom, transparent 0%, var(--color-primary) 30%, var(--color-primary) 70%, transparent 100%);
+  opacity: 0.06;
+}
+
+.hero__accent-line--2 {
+  right: auto;
+  left: 5%;
+  top: 30%;
+  height: 40%;
+  opacity: 0.04;
 }
 
 @media (max-width: 767px) {
@@ -726,9 +672,21 @@ em {
 
 /* Pause hero animations when off-screen */
 .hero--paused .hero__aurora,
-.hero--paused .hero__orb,
-.hero--paused .hero__particles span {
+.hero--paused .hero__orb {
   animation-play-state: paused;
+}
+
+/* Bottom fade separator */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* --- Hero content --- */
@@ -742,7 +700,7 @@ em {
 }
 
 .hero__content {
-  max-width: 640px;
+  max-width: 680px;
 }
 
 .hero__tag {
@@ -773,11 +731,11 @@ em {
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 600;
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.75rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 2rem;
   color: var(--color-text-heading);
 }
 
@@ -848,11 +806,11 @@ em {
 }
 
 .hero__subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: var(--color-text-secondary);
-  max-width: 500px;
-  line-height: 1.75;
-  margin-bottom: 2.5rem;
+  max-width: 480px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
 }
 
 .hero__actions {
