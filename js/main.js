@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   updateLogos(document.documentElement.getAttribute('data-theme'));
   initHeader();
   initMobileNav();
-  initRevealAnimations();
-  initCountUp();
   initSmoothScroll();
   initContactForm();
+  initHeroReveals();
+  initHeroCycle();
+  initRevealAnimations();
+  initCountUp();
 });
 
 /* --- Logo Fallbacks --- */
@@ -196,6 +198,48 @@ function initSmoothScroll() {
       target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
     });
   });
+}
+
+/* --- Hero Staggered Reveals --- */
+function initHeroReveals() {
+  const heroReveals = document.querySelectorAll('.hero__reveal');
+  const delays = [0, 120, 240, 360, 550, 720, 1000];
+
+  if (prefersReducedMotion) {
+    heroReveals.forEach(el => el.classList.add('active'));
+    return;
+  }
+
+  heroReveals.forEach(el => {
+    const d = parseInt(el.dataset.delay, 10) || 0;
+    setTimeout(() => el.classList.add('active'), delays[d] || d * 150);
+  });
+}
+
+/* --- Hero Word Cycle --- */
+function initHeroCycle() {
+  const container = document.getElementById('heroCycle');
+  if (!container) return;
+
+  const words = container.querySelectorAll('.hero__cycle-word');
+  if (words.length < 2) return;
+
+  let current = 0;
+  const interval = 2800;
+
+  setInterval(() => {
+    const prev = words[current];
+    prev.classList.remove('active');
+    prev.classList.add('exit-up');
+
+    current = (current + 1) % words.length;
+    const next = words[current];
+    next.classList.remove('exit-up');
+    next.classList.add('active');
+
+    // Clean exit class after transition
+    setTimeout(() => prev.classList.remove('exit-up'), 500);
+  }, interval);
 }
 
 /* --- Contact Form --- */
