@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initHeroReveals();
   initHeroCycle();
+  initHeroPause();
   initRevealAnimations();
   initCountUp();
 });
@@ -214,6 +215,18 @@ function initHeroReveals() {
     const d = parseInt(el.dataset.delay, 10) || 0;
     setTimeout(() => el.classList.add('active'), delays[d] || d * 150);
   });
+}
+
+/* --- Pause hero animations when off-screen --- */
+function initHeroPause() {
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const observer = new IntersectionObserver(([entry]) => {
+    hero.classList.toggle('hero--paused', !entry.isIntersecting);
+  }, { threshold: 0 });
+
+  observer.observe(hero);
 }
 
 /* --- Hero Word Cycle --- */
