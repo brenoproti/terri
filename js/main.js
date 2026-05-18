@@ -263,7 +263,7 @@ function initHeroCycle() {
 const FORM_CONFIG = {
   // Número do WhatsApp com código do país (só números, sem +, espaços ou traços)
   // Exemplo: '5511999999999' = Brasil(55) + DDD(11) + número
-  whatsappNumber: '5531998167420',
+  whatsappNumber: '5531992520403',
 };
 // ============================================================
 
