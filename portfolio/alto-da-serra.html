@@ -84,25 +84,29 @@
             <span class="case-method__num">01</span>
             <h3 class="case-method__title">Diagnóstico</h3>
             <p class="case-method__text">Análise de mercado, concorrência local e definição do público comprador ideal.</p>
-            <span class="case-method__plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            <div class="case-method__detail" id="etapa-1"><div class="case-method__detail-inner"><p class="case-method__detail-text">Mapeamos a persona compradora, estudamos os lançamentos concorrentes da região e definimos a proposta de valor que diferenciaria o empreendimento na largada.</p></div></div>
+            <button class="case-method__plus" type="button" aria-expanded="false" aria-controls="etapa-1" aria-label="Ver mais sobre Diagnóstico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
           </div>
           <div class="case-method__item">
             <span class="case-method__num">02</span>
             <h3 class="case-method__title">Estratégia de mídia</h3>
             <p class="case-method__text">Funis no Meta e Google Ads segmentados por renda, interesse e geolocalização.</p>
-            <span class="case-method__plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            <div class="case-method__detail" id="etapa-2"><div class="case-method__detail-inner"><p class="case-method__detail-text">Estruturamos funis de topo, meio e fundo com públicos de interesse, lookalikes e remarketing, distribuindo o orçamento de mídia por etapa do funil.</p></div></div>
+            <button class="case-method__plus" type="button" aria-expanded="false" aria-controls="etapa-2" aria-label="Ver mais sobre Estratégia de mídia"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
           </div>
           <div class="case-method__item">
             <span class="case-method__num">03</span>
             <h3 class="case-method__title">Aquecimento</h3>
             <p class="case-method__text">Campanha de pré-lançamento criando expectativa e fila de interessados cadastrados.</p>
-            <span class="case-method__plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            <div class="case-method__detail" id="etapa-3"><div class="case-method__detail-inner"><p class="case-method__detail-text">Conteúdos sobre a região, as plantas e as condições de pagamento geraram expectativa e formaram uma fila de interessados cadastrados antes do evento.</p></div></div>
+            <button class="case-method__plus" type="button" aria-expanded="false" aria-controls="etapa-3" aria-label="Ver mais sobre Aquecimento"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
           </div>
           <div class="case-method__item">
             <span class="case-method__num">04</span>
             <h3 class="case-method__title">Otimização</h3>
             <p class="case-method__text">Ajustes diários de criativos e segmentação para reduzir o custo por lead.</p>
-            <span class="case-method__plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+            <div class="case-method__detail" id="etapa-4"><div class="case-method__detail-inner"><p class="case-method__detail-text">Acompanhamento diário de CPL, CTR e qualidade dos leads, com testes de criativos e refinamento de segmentação para baixar o custo por lead ao longo da campanha.</p></div></div>
+            <button class="case-method__plus" type="button" aria-expanded="false" aria-controls="etapa-4" aria-label="Ver mais sobre Otimização"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
           </div>
         </div>
       </div>
@@ -336,6 +340,17 @@
         });
       }
       syncLogo();
+    })();
+
+    // Method strip — expandable steps
+    (function() {
+      document.querySelectorAll('.case-method__plus').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.case-method__item');
+          const open = item.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
     })();
 
     // Reveal on scroll
