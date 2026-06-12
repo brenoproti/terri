@@ -33,6 +33,7 @@
           <li><a href="../index.html#sobre" class="header__nav-link">Sobre</a></li>
           <li><a href="../index.html#servicos" class="header__nav-link">Serviços</a></li>
           <li><a href="../index.html#portfolio" class="header__nav-link">Portfólio</a></li>
+          <li><a href="../index.html#parceiros" class="header__nav-link">Clientes</a></li>
           <li><a href="../index.html#contato" class="header__nav-link header__nav-link--cta">Fale conosco</a></li>
         </ul>
       </nav>
@@ -41,9 +42,27 @@
           <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         </button>
+        <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <nav aria-label="Navegação mobile">
+      <ul class="mobile-nav__list">
+        <li><a href="../index.html#sobre" class="mobile-nav__link">Sobre</a></li>
+        <li><a href="../index.html#servicos" class="mobile-nav__link">Serviços</a></li>
+        <li><a href="../index.html#portfolio" class="mobile-nav__link">Portfólio</a></li>
+        <li><a href="../index.html#parceiros" class="mobile-nav__link">Clientes</a></li>
+        <li><a href="../index.html#contato" class="mobile-nav__link mobile-nav__link--cta">Fale conosco</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <main>
     <!-- Hero -->
@@ -340,6 +359,30 @@
         });
       }
       syncLogo();
+    })();
+
+    // Mobile menu
+    (function() {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      if (!menuBtn || !mobileNav) return;
+      function close() {
+        menuBtn.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('active');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      menuBtn.addEventListener('click', () => {
+        if (mobileNav.classList.contains('active')) { close(); return; }
+        menuBtn.classList.add('active');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        mobileNav.classList.add('active');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+      mobileNav.querySelectorAll('.mobile-nav__link').forEach(l => l.addEventListener('click', close));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     })();
 
     // Method strip — expandable steps
